@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/assets/images/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="How would you react to images coming to life?"
     />
+    <meta name="keywords" content="ar, enchanter, arjs, threejs, augmented reality, image tracking, nft, natural feature tracking, 3d model, animated model, animation" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -24,7 +25,10 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>ReactAR</title>
+
+    <!-- Custom Styles -->
+    <link href="%PUBLIC_URL%/assets/css/styles.css" rel="stylesheet">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -39,5 +43,182 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <!-- three.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/three.min.js" integrity="sha512-E1+SnTWyHYoY5MN8wpL0SI4TYbpWN12sHXyEViwbzzEyq6GHxQrPFDzEeUDab4emXcf3Yj41Tht2JZnpo3kjwA==" crossorigin="anonymous"></script>
+    <!-- three.js load GLTF -->
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r119/examples/js/loaders/GLTFLoader.js" integrity="sha384-/PZ48PhdIRvZ+UTt2RqFnNIKZe88fy+KztzdmJ4RQl05/HHGRRsjlDIFTNVDeGyC" crossorigin="anonymous"></script>
+    <!-- ar.js -->
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.2.1/three.js/build/ar-nft.js" integrity="sha384-BpUrCkowTHVfmA7JvAFs+ZumBGQv7JM2WNxuKyMsotw5i9JLE0VHYAZtOVM7Cba7" crossorigin="anonymous"></script>
+
+    <!-- <script>THREEx.ArToolkitContext.baseURL = '../'</script> -->
+    <script>THREEx.ArToolkitContext.baseURL = 'https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.2.1/data/'</script>
+
+    <script>
+        //////////////////////////////////////////////////////////////////////////////////
+        //		Init
+        //////////////////////////////////////////////////////////////////////////////////
+
+        var renderer = new THREE.WebGLRenderer({
+            antialias: true,
+            alpha: true,
+            precision: 'mediump',
+        });
+
+        var clock = new THREE.Clock();
+
+        var mixers = [];
+
+        renderer.setPixelRatio(window.devicePixelRatio);
+
+        renderer.setClearColor(new THREE.Color('lightgrey'), 0)
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.domElement.style.position = 'absolute'
+        renderer.domElement.style.top = '0px'
+        renderer.domElement.style.left = '0px'
+        document.body.appendChild( renderer.domElement );
+
+        // init scene and camera
+        var scene = new THREE.Scene();
+
+        //////////////////////////////////////////////////////////////////////////////////
+        //		Initialize a basic camera
+        //////////////////////////////////////////////////////////////////////////////////
+
+        // Create a camera
+        var camera = new THREE.Camera();
+        scene.add(camera);
+
+        var light = new THREE.AmbientLight(0xffffff);
+        scene.add(light);
+
+        ////////////////////////////////////////////////////////////////////////////////
+        //          handle arToolkitSource
+        ////////////////////////////////////////////////////////////////////////////////
+
+        var arToolkitSource = new THREEx.ArToolkitSource({
+            sourceType : 'webcam',
+            sourceWidth: 480,
+            sourceHeight: 640,
+        })
+
+        arToolkitSource.init(function onReady(){
+            // use a resize to fullscreen mobile devices
+            setTimeout(function() {
+                onResize()
+            }, 1000);
+        })
+
+        // handle resize
+        window.addEventListener('resize', function(){
+            onResize()
+        })
+
+        // listener for end loading of NFT marker
+        window.addEventListener('arjs-nft-loaded', function(ev){
+          console.log(ev);
+        })
+
+        function onResize(){
+            arToolkitSource.onResizeElement()
+            arToolkitSource.copyElementSizeTo(renderer.domElement)
+            if( arToolkitContext.arController !== null ){
+                arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas)
+            }
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////
+        //          initialize arToolkitContext
+        ////////////////////////////////////////////////////////////////////////////////
+
+        // create atToolkitContext
+        var arToolkitContext = new THREEx.ArToolkitContext({
+            detectionMode: 'mono',
+            canvasWidth: 480,
+            canvasHeight: 640,
+        }, {
+            sourceWidth: 480,
+            sourceHeight: 640,
+        })
+
+        // initialize it
+        arToolkitContext.init(function onCompleted(){
+            // copy projection matrix to camera
+            camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
+        })
+
+        ////////////////////////////////////////////////////////////////////////////////
+        //          Create a ArMarkerControls
+        ////////////////////////////////////////////////////////////////////////////////
+
+        // init controls for camera
+        var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
+            type : 'nft',
+            // https://ar-js-org.github.io/AR.js-Docs/image-tracking/
+            // descriptorsUrl : './assets/markers/phoenix-of-autumn',
+            descriptorsUrl : 'https://cdn.jsdelivr.net/gh/HEXcube/EnchantAR/assets/markers/phoenix-of-autumn',
+            changeMatrixMode: 'cameraTransformMatrix'
+        })
+
+        scene.visible = false
+
+        var root = new THREE.Object3D();
+        scene.add(root);
+
+        //////////////////////////////////////////////////////////////////////////////////
+        //		add an object in the scene
+        //////////////////////////////////////////////////////////////////////////////////
+
+        var threeGLTFLoader = new THREE.GLTFLoader();
+        var model;
+
+        // threeGLTFLoader.load("https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.2.1/three.js/examples/resources/Flamingo.glb", function (gltf) {
+        threeGLTFLoader.load("%PUBLIC_URL%/assets/models/phoenix-bird.glb", function (gltf) {
+            model = gltf.scene.children[0];
+            model.name = 'Phoenix Bird';
+
+            var animation = gltf.animations[0];
+            var mixer = new THREE.AnimationMixer(model);
+            mixers.push(mixer);
+            var action = mixer.clipAction(animation);
+            action.play();
+
+            root.matrixAutoUpdate = false;
+            root.add(model);
+
+            model.position.z = -200;
+            model.position.x = 100;
+            model.position.y = 100;
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            //		render the whole thing on the page
+            //////////////////////////////////////////////////////////////////////////////////
+
+            var animate = function() {
+                requestAnimationFrame(animate);
+
+                if (mixers.length > 0) {
+                    for (var i = 0; i < mixers.length; i++) {
+                        mixers[i].update(clock.getDelta());
+                    }
+                }
+
+                if (!arToolkitSource.ready) {
+                    return;
+                }
+
+                arToolkitContext.update( arToolkitSource.domElement )
+
+                // update scene.visible if the marker is seen
+                scene.visible = camera.visible;
+
+                renderer.render(scene, camera);
+            };
+
+            requestAnimationFrame(animate);
+        }
+    );
+    </script>
   </body>
 </html>

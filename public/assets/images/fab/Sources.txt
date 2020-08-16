@@ -1,0 +1,6 @@
+https://fontawesome.com/icons/plus?style=solid
+https://fontawesome.com/icons/image?style=solid
+https://fontawesome.com/icons/info?style=solid
+https://fontawesome.com/icons/user?style=solid
+https://fontawesome.com/icons/github-alt?style=brands
+
