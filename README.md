@@ -1,4 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ReactAR
+_How would you react to images coming to life? :sparkles:_
+React port of [EnchatAR](https://github.com/HEXcube/EnchantAR).
+
+HOWTO
+-----
+ - Open this image on any screen: [Image](https://github.com/HEXcube/EnchantAR/raw/master/assets/markers/phoenix-of-autumn.jpg)
+ - Open this app on your phone and scan the screen where you have the image open: [Webapp](https://hexcube.github.io/ReactAR/)
+ - Watch ReactAR react to images! :sparkles:
+
+ ![Phoenix of Autumn](https://github.com/HEXcube/EnchantAR/raw/master/assets/markers/phoenix-of-autumn.jpg)
+
+CREDITS
+-------
+- [Deploying a React App (created using create-react-app) to GitHub Pages](https://github.com/gitname/react-gh-pages)
+- [Deploying React Apps to GitHub Pages on Master Branch — Creating a “User Site”](https://medium.com/swlh/deploying-react-apps-to-github-pages-on-master-branch-creating-a-user-site-bc96c2a37dc8)
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
+- Derived from [AR.js's NFT example](https://github.com/AR-js-org/AR.js/blob/3.2.1/three.js/examples/nft.html)
+- Developed using [AR.js](https://github.com/AR-js-org/AR.js) and [three.js](https://threejs.org)
+- Animated 3D model from [Phoenix bird by Norberto Aguilera](https://sketchfab.com/3d-models/phoenix-bird-844ba0cf144a413ea92c779f18912042)
+- Image marker derived from [Phoenix of Autumn by AlviaAlcedo](https://deviantart.com/alviaalcedo/art/Phoenix-of-autumn-702563565)
+- GLTF to GLB conversion with [GLB Packer](https://glb-packer.glitch.me)
+- Image to nft marker conversion using [NFT Marker Creator](https://carnaux.github.io/NFT-Marker-Creator/)
+
 
 ## Available Scripts
 
@@ -27,6 +50,10 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run deploy`
+
+Generate a production build of your app, and deploy it to GitHub Pages.
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
@@ -43,26 +70,8 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+LICENSE
+-------
+Except where otherwise noted, all original content here are released under [MIT license](https://opensource.org/licenses/MIT). However, part of the work here are derived from other open source projects and as a result
+follow the licenses of their original sources.
