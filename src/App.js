@@ -16,17 +16,17 @@ class App extends React.Component {
             </span>
             <ul className="fab-buttons">
                 <li className="fab-buttons-item">
-                    <a className="fab-buttons-link" target="_blank" href="https://github.com/HEXcube/EnchantAR/blob/master/README.md" data-tooltip="How to use">
+                    <a className="fab-buttons-link" target="_blank" href="https://github.com/HEXcube/ReactAR/blob/master/README.md" data-tooltip="How to use">
                         <i className="icon-material icon-material-info"></i>
                     </a>
                 </li>
                 <li className="fab-buttons-item">
-                    <a className="fab-buttons-link" target="_blank" href="https://github.com/HEXcube/EnchantAR/raw/master/assets/markers/phoenix-of-autumn.jpg" data-tooltip="Open marker image">
+                    <a className="fab-buttons-link" target="_blank" href="https://github.com/HEXcube/ReactAR/raw/master/public/assets/markers/phoenix-of-autumn.jpg" data-tooltip="Open marker image">
                         <i className="icon-material icon-material-image"></i>
                     </a>
                 </li>
                 <li className="fab-buttons-item">
-                    <a className="fab-buttons-link" target="_blank" href="https://github.com/HEXcube/EnchantAR" data-tooltip="View source code">
+                    <a className="fab-buttons-link" target="_blank" href="https://github.com/HEXcube/ReactAR" data-tooltip="View source code">
                         <i className="icon-material icon-material-source"></i>
                     </a>
                 </li>

@@ -1,14 +1,14 @@
 # ReactAR
 _How would you react to images coming to life? :sparkles:_
-React port of [EnchatAR](https://github.com/HEXcube/EnchantAR).
+React port of [EnchantAR](https://github.com/HEXcube/EnchantAR).
 
 HOWTO
 -----
- - Open this image on any screen: [Image](https://github.com/HEXcube/EnchantAR/raw/master/assets/markers/phoenix-of-autumn.jpg)
+ - Open this image on any screen: [Image](https://github.com/HEXcube/ReactAR/raw/master/public/assets/markers/phoenix-of-autumn.jpg)
  - Open this app on your phone and scan the screen where you have the image open: [Webapp](https://hexcube.github.io/ReactAR/)
  - Watch ReactAR react to images! :sparkles:
 
- ![Phoenix of Autumn](https://github.com/HEXcube/EnchantAR/raw/master/assets/markers/phoenix-of-autumn.jpg)
+ ![Phoenix of Autumn](https://github.com/HEXcube/ReactAR/raw/master/public/assets/markers/phoenix-of-autumn.jpg)
 
 CREDITS
 -------
