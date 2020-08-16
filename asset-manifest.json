@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/ReactAR/static/css/main.5f361e03.chunk.css",
-    "main.js": "/ReactAR/static/js/main.7d5aff1a.chunk.js",
-    "main.js.map": "/ReactAR/static/js/main.7d5aff1a.chunk.js.map",
+    "main.js": "/ReactAR/static/js/main.3135c1ce.chunk.js",
+    "main.js.map": "/ReactAR/static/js/main.3135c1ce.chunk.js.map",
     "runtime-main.js": "/ReactAR/static/js/runtime-main.8442f137.js",
     "runtime-main.js.map": "/ReactAR/static/js/runtime-main.8442f137.js.map",
-    "static/js/2.a0e23192.chunk.js": "/ReactAR/static/js/2.a0e23192.chunk.js",
-    "static/js/2.a0e23192.chunk.js.map": "/ReactAR/static/js/2.a0e23192.chunk.js.map",
+    "static/js/2.addd76e4.chunk.js": "/ReactAR/static/js/2.addd76e4.chunk.js",
+    "static/js/2.addd76e4.chunk.js.map": "/ReactAR/static/js/2.addd76e4.chunk.js.map",
     "index.html": "/ReactAR/index.html",
-    "precache-manifest.2d8688892aa22a0bf048b3f2bebedab0.js": "/ReactAR/precache-manifest.2d8688892aa22a0bf048b3f2bebedab0.js",
+    "precache-manifest.f15dde0f93fd4cbeca2253beeb5d549d.js": "/ReactAR/precache-manifest.f15dde0f93fd4cbeca2253beeb5d549d.js",
     "service-worker.js": "/ReactAR/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/ReactAR/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.a0e23192.chunk.js.LICENSE.txt": "/ReactAR/static/js/2.a0e23192.chunk.js.LICENSE.txt",
+    "static/js/2.addd76e4.chunk.js.LICENSE.txt": "/ReactAR/static/js/2.addd76e4.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "/ReactAR/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.8442f137.js",
-    "static/js/2.a0e23192.chunk.js",
+    "static/js/2.addd76e4.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.7d5aff1a.chunk.js"
+    "static/js/main.3135c1ce.chunk.js"
   ]
 }
