@@ -9,6 +9,10 @@ HOWTO
  - Watch ReactAR react to images! :sparkles:
 
  ![Phoenix of Autumn](https://github.com/HEXcube/ReactAR/raw/master/public/assets/markers/phoenix-of-autumn.jpg)
+ 
+DEMO
+----
+https://user-images.githubusercontent.com/3755396/126223544-20d06e0d-e4e6-4c98-9348-39b00ae1cec2.mp4
 
 CREDITS
 -------
